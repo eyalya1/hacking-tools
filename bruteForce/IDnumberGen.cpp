@@ -21,8 +21,6 @@ int main()
                 file << "\n";
             }
             i++;
-            // file << i;
-            // file << "\n";
         }
         printf("%ld\n", i);
     }

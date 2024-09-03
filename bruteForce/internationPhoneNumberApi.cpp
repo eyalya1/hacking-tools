@@ -2,20 +2,22 @@
 #include <fstream>
 #include <stdio.h>
 #include <string>
+#include <list>
 using namespace std;
+
 int main()
 {
-    string starts[] = {
-        "050",
-        "052",
-        "053",
-        "054",
-        "058",
-        "059",
-        "072",
-        "073"};
-    ofstream file("PhoneNumbers.txt");
-    for (string start : starts)
+    ifstream ReadFile("phoneNumbersStarts.txt");
+    ofstream WriteFile("interPhoneNumbers.txt");
+    string line;
+    int count = 0;
+    list<string> phoneNumbersStart;
+    while (getline(ReadFile, line))
+    {
+        count++;
+        phoneNumbersStart.push_back(line);
+    }
+    for (string start : phoneNumbersStart)
     {
         for (int i = 0; i < 10000000; i++)
         {
@@ -25,6 +27,9 @@ int main()
         }
         printf("%s\n", start.c_str());
     }
+    ReadFile.close();
+    WriteFile.close();
+    return 0;
 }
 string padZero(int num)
 {
