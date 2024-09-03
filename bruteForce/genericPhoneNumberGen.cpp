@@ -31,15 +31,16 @@ int main(int argc, char *argv[])
     string WriteText = "";
     for (string start : phoneNumbersStart)
     {
+        WriteText = "";
         for (int i = 0; i < 10000000; i++)
         {
             WriteText.append(start);
             WriteText.append(padZero(i));
             WriteText.append("\n");
         }
+        WriteFile << WriteText;
         printf("%s\n", start.c_str());
     }
-    WriteFile << WriteText;
     WriteFile.close();
     return 0;
 }
