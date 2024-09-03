@@ -4,7 +4,7 @@
 #include <string>
 #include <list>
 using namespace std;
-
+string padZero(int num);
 int main()
 {
     ifstream ReadFile("phoneNumbersStarts.txt");
@@ -21,9 +21,9 @@ int main()
     {
         for (int i = 0; i < 10000000; i++)
         {
-            file << start;
-            file << padZero(i);
-            file << "\n";
+            WriteFile << start;
+            WriteFile << padZero(i);
+            WriteFile << "\n";
         }
         printf("%s\n", start.c_str());
     }
